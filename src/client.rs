@@ -1,10 +1,10 @@
 mod protos_gen;
 
+use grpcio::{ChannelBuilder, EnvBuilder, Error};
+use protos_gen::diner::{Check, Item, Order};
+use protos_gen::diner_grpc::DinerClient;
 use std::env;
 use std::sync::Arc;
-use grpcio::{EnvBuilder, ChannelBuilder, Error};
-use protos_gen::diner_grpc::DinerClient;
-use protos_gen::diner::{Order, Item, Check};
 
 fn main() {
     let args = std::env::args().collect::<Vec<_>>();
@@ -12,7 +12,8 @@ fn main() {
         panic!("Expected exactly one argument, the port to connect to.")
     }
 
-    let port = args[1].parse::<u16>()
+    let port = args[1]
+        .parse::<u16>()
         .unwrap_or_else(|_| panic!("{} is not a valid port number", args[1]));
 
     let env = Arc::new(EnvBuilder::new().build());
