@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package raftrs;
+
+service Diner {
+    rpc Eat (Order) returns (Check) {
+    }
+}
+
+enum Item {
+    Spam = 0;
+    Eggs = 1;
+    Ham = 2;
+}
+
+message Order {
+    repeated Item items = 1;
+}
+
+message Check {
+    double total = 1;
+}
