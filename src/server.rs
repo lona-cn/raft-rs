@@ -11,6 +11,8 @@ use std::io::Read;
 use std::sync::Arc;
 use std::thread;
 
+mod tests;
+
 #[derive(Clone)]
 struct DinerService;
 

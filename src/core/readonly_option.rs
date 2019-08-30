@@ -1,6 +1,5 @@
-use std::net::Shutdown::Read;
 use crate::core::readonly_option::ReadOnlyOption::ReadOnlyLeaseBased;
-
+use std::net::Shutdown::Read;
 
 pub enum ReadOnlyOption {
     ///ReadOnlySafe guarantees the linearizability of read only request by
