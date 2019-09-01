@@ -15,3 +15,4 @@ pub mod readonly_option;
 pub mod state_machine;
 pub mod status;
 pub mod task;
+pub mod endpoint;
