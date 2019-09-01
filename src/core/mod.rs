@@ -3,6 +3,7 @@ pub mod closure_queue;
 pub mod closure_queue_impl;
 pub mod leader_change_context;
 
+#[macro_use]
 pub mod logger;
 pub mod node;
 pub mod node_id;

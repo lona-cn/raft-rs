@@ -1,8 +1,8 @@
 use std::collections::LinkedList;
 
-struct Closure {}
+pub struct Closure {}
 
-struct TaskClosure {}
+pub struct TaskClosure {}
 
 pub trait ClosureQueue {
     /// clear all closure in queue

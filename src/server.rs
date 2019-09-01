@@ -1,7 +1,12 @@
 //this to found set_boxed_logger
+#![feature(crate_visibility_modifier)]
+
+#[macro_use]
+extern crate log;
+
+#[macro_use]
 mod core;
 mod protos_gen;
-
 
 use futures::future::Future;
 use futures::sync::oneshot;
@@ -13,7 +18,6 @@ use std::io::Read;
 use std::sync::Arc;
 use std::thread;
 
-#[cfg(all(feature = "std", atomic_cas))]
 mod tests;
 #[derive(Clone)]
 struct DinerService;

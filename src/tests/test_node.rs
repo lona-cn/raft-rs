@@ -7,12 +7,13 @@ fn start_node() {
     assert_eq!(node_options.get_snapshot_interval_secs(), 3600);
 }
 
-#[cfg(all(feature = "std", atomic_cas))]
-use crate::core::logger::{LoggingLevel, init};
-
+#[macro_use]
+use crate::core::logger;
+use std::{thread, time};
 #[test]
-#[cfg(all(feature = "std", atomic_cas))]
 fn test_logger() {
-    assert_eq!(init(LoggingLevel::Debug), true);
-    info!("Hello test_logger");
+    assert_eq!(logger::init(logger::LoggingLevel::Debug), true);
+    launch_info!("Hello logger");
+    launch_info!("Hello World");
+    debug_!("Hello, Debug");
 }

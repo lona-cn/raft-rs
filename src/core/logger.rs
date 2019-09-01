@@ -3,7 +3,6 @@ use std::str::FromStr;
 use std::{env, fmt};
 use yansi::Paint;
 
-
 //crate const COLORS_ENV: &str = "RAFT_CLI_COLORS";
 const COLORS_ENV: &str = "RAFT_CLI_COLORS";
 
@@ -147,9 +146,7 @@ impl log::Log for RaftLogger {
     fn flush(&self) {}
 }
 
-//crate fn try_init(level: LoggingLevel, verbose: bool) -> bool {
-#[cfg(all(feature = "std", atomic_cas))]
-fn try_init(level: LoggingLevel, verbose: bool) -> bool {
+crate fn try_init(level: LoggingLevel, verbose: bool) -> bool {
     if level == LoggingLevel::Off {
         return false;
     }
@@ -201,22 +198,19 @@ fn usize_to_filter(num: usize) -> log::LevelFilter {
     }
 }
 
-//crate fn push_max_level(level: LoggingLevel) {
-fn push_max_level(level: LoggingLevel) {
+crate fn push_max_level(level: LoggingLevel) {
     LAST_LOG_FILTER.store(filter_to_usize(log::max_level()), Ordering::Release);
     PUSHED.store(true, Ordering::Release);
     log::set_max_level(level.to_level_filter());
 }
 
-//crate fn pop_max_level() {
-fn pop_max_level() {
+crate fn pop_max_level() {
     if PUSHED.load(Ordering::Acquire) {
         log::set_max_level(usize_to_filter(LAST_LOG_FILTER.load(Ordering::Acquire)));
     }
 }
 
 #[doc(hidden)]
-#[cfg(all(feature = "std", atomic_cas))]
 pub fn init(level: LoggingLevel) -> bool {
     try_init(level, true)
 }
