@@ -9,7 +9,6 @@ fn start_node() {
 
 #[macro_use]
 use crate::core::logger;
-use std::{thread, time};
 #[test]
 fn test_logger() {
     assert_eq!(logger::init(logger::LoggingLevel::Debug), true);
