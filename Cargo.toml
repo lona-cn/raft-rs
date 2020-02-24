@@ -15,12 +15,6 @@ name="client"
 path="src/client.rs"
 
 [dependencies]
-futures = "0.1.28"
-grpcio = "0.4.4"
-protobuf = "2.8.0"
-log = {verison="0.4.5",features = ["std"]}
-yansi = "0.5"
-atty = "0.2.13"
+tonic="0.1.1"
 
 [build-dependencies]
-protoc-grpcio="1.0.2"
