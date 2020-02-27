@@ -1,8 +1,7 @@
 extern crate rand;
 use base64_url::*;
 use num_bigint::{BigInt, RandBigInt, ToBigInt};
-use num_traits::cast::ToPrimitive;
-use num_traits::Zero;
+use num_traits::{Zero,cast::ToPrimitive};
 use rand::{random, thread_rng, Rng};
 
 pub fn rand_string(n: usize) -> String {
