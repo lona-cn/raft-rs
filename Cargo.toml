@@ -16,5 +16,14 @@ path="src/client.rs"
 
 [dependencies]
 tonic="0.1.1"
+prost = "0.6"
+tokio = { version = "0.2.11", features = ["full"] }
+log = "0.4.8"
+env_logger="0.7.1"
+base64-url = "1.1.13"
+rand="0.6.5"
+num-bigint = {version="0.2.6",features=["rand"]}
+num-traits = "0.2.11"
 
 [build-dependencies]
+tonic-build = "0.1.1"
