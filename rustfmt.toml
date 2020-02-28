@@ -1,0 +1,4 @@
+edition = "2018"
+use_field_init_shorthand = true
+enum_discrim_align_threshold=50
+struct_field_align_threshold=50
